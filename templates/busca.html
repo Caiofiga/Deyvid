@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resistência do Antibiótico: {{ drug }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Resistência do Antibiótico: {{ drug }}</h1>
+        
+        <!-- Exibir erro se não encontrar resistência -->
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% else %}
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Antibiótico</th>
+                        <th>Quantidade de Casos de Resistência</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in data %}
+                        <tr>
+                            <td>{{ item['drug'] }}</td>
+                            <td>{{ item['counts'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+
+        <p><a href="{{ url_for('index') }}">Voltar à página inicial</a></p>
+    </div>
+</body>
+</html>
