@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado da Busca</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Resultado da sua Busca</h1>
+        
+        {% if closest_drug %}
+            <p>O antibiótico mais próximo da sua busca é: <strong>{{ closest_drug }}</strong></p>
+        {% else %}
+            <p>Não encontramos um antibiótico correspondente à sua busca.</p>
+        {% endif %}
+        
+        <a href="{{ url_for('busca.html') }}">Voltar para a Busca</a>
+    </div>
+</body>
+</html>
