@@ -12,12 +12,15 @@ formulario.onsubmit = function(event) {
     if (nome) {
         // Faz a requisição AJAX
         $.ajax({
-            url: "http://127.0.0.1:5000/busca",  // Endereço da sua API
+            url: "http://127.0.0.1:5000/",  // Endereço da sua API
             type: "POST",
             data: { ab_name: nome },  // Envia o valor da busca como "ab_name"
             success: function(response) {
-                // Exibe a resposta no console (ou faça algo com a resposta)
-                console.log(response);
+                // Change the current URL without adding to history
+                history.replaceState(null, '', '/resposta');
+                
+                // Redirect to the new URL
+                $(location).prop('href', '/resposta');
             },
             error: function(error) {
                 // Trata erros na requisição
