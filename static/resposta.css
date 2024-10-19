@@ -1,0 +1,76 @@
+/* Estilos para o corpo da página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Container centralizado */
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Estilos do título */
+h1 {
+    color: #007bff;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+/* Estilos para os parágrafos */
+p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+strong {
+    color: #333;
+    font-weight: bold;
+}
+
+/* Estilo para o subtítulo do gráfico */
+h2 {
+    color: #007bff;
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+/* Estilos para o gráfico */
+canvas {
+    margin-top: 20px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
