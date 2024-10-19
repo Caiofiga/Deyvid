@@ -1,22 +1,30 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultado da Busca</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+    <link rel="stylesheet" href="../static/resposta.css">
+    <title>Resultado da Busca de Antibióticos</title>
 </head>
 <body>
     <div class="container">
-        <h1>Resultado da sua Busca</h1>
-        
-        {% if closest_drug %}
-            <p>O antibiótico mais próximo da sua busca é: <strong>{{ closest_drug }}</strong></p>
-        {% else %}
-            <p>Não encontramos um antibiótico correspondente à sua busca.</p>
-        {% endif %}
-        
-        <a href="{{ url_for('busca.html') }}">Voltar para a Busca</a>
+    <h1>Resultado da Busca de Antibióticos</h1>
+    
+    <!-- Exibe o nome do antibiótico pesquisado -->
+    <p><strong>Antibiótico pesquisado:</strong> {{ closest_drug }}</p>
+
+    <!-- Exibe a contagem de resistência -->
+    <h2>Contagem de resistência:</h2>
+    <ul>
+        {% for disease, counts in resistencias.items() %}
+            <li><strong>{{ disease }}:</strong> 
+                R: {{ counts['R'] }}, 
+                I: {{ counts['I'] }}, 
+                S: {{ counts['S'] }}
+            </li>
+        {% endfor %}
+    </ul>
+
     </div>
 </body>
 </html>
