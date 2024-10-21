@@ -31,6 +31,13 @@
             </li>
             {% endfor %}
           </ul>
+          {% if graph_url %}
+          <h2>Gráfico de Resistência Interativo:</h2>
+          <div>
+              {{ graph_url | safe }}
+          </div>
+          {% endif %}
+
         </div>
         <div class="col-6">
           <div class="model">
