@@ -31,10 +31,10 @@
             </li>
             {% endfor %}
           </ul>
-          {% if graph_url %}
+            {% if graph_html %}
           <h2>Gráfico de Resistência Interativo:</h2>
           <div>
-              {{ graph_url | safe }}
+            {{ graph_html|safe }}
           </div>
           {% endif %}
 
@@ -44,32 +44,29 @@
             <form id="modelform" onsubmit="ProcessData(event)">
                 <div class="row">
                   <div class="col-md-2">
-                    <label for="insurance">Insurance:</label>
+                    <label for="insurance">Plano:</label>
                     <input type="text" id="insurance" name="insurance" class="form-control" />
+            
                   </div>
                   <div class="col-md-2">
-                    <label for="religion">Religion:</label>
+                    <label for="religion">Religião:</label>
                     <input type="text" id="religion" name="religion" class="form-control" />
                   </div>
                   <div class="col-md-2">
-                    <label for="marital_status">Marital Status:</label>
+                    <label for="marital_status">Estado Civil:</label>
                     <input type="text" id="marital_status" name="marital_status" class="form-control" />
                   </div>
                   <div class="col-md-2">
-                    <label for="ethnicity">Ethnicity:</label>
+                    <label for="ethnicity">Etnia:</label>
                     <input type="text" id="ethnicity" name="ethnicity" class="form-control" />
                   </div>
                   <div class="col-md-2">
-                    <label for="gender">Gender:</label>
+                    <label for="gender">Gênero:</label>
                     <input type="text" id="gender" name="gender" class="form-control" />
                   </div>
                 </div>
               
-                <div class="row mt-3">
-                  <div class="col-md-4">
-                    <label for="ab_name">Antibiotic Name:</label>
-                    <input type="text" id="ab_name" name="ab_name" class="form-control" />
-                  </div>
+      
                 </div>
               
                 <div class="row mt-3">
@@ -86,7 +83,7 @@
                     </select>
                   </div>
                   <div class="col-md-3">
-                    <label for="Respiratory">Respiratory:</label>
+                    <label for="Respiratory">Respiratória:</label>
                     <select id="Respiratory" name="Respiratory" class="form-control">
                       <option value="Low">Low</option>
                       <option value="Medium">Medium</option>
@@ -94,7 +91,7 @@
                     </select>
                   </div>
                   <div class="col-md-3">
-                    <label for="Neurological">Neurological:</label>
+                    <label for="Neurological">Neurologica:</label>
                     <select id="Neurological" name="Neurological" class="form-control">
                       <option value="Low">Low</option>
                       <option value="Medium">Medium</option>
@@ -102,7 +99,7 @@
                     </select>
                   </div>
                   <div class="col-md-3">
-                    <label for="Infectious">Infectious:</label>
+                    <label for="Infectious">Infeccioso:</label>
                     <select id="Infectious" name="Infectious" class="form-control">
                       <option value="Low">Low</option>
                       <option value="Medium">Medium</option>
@@ -129,7 +126,7 @@
                     </select>
                   </div>
                   <div class="col-md-3">
-                    <label for="Endocrine">Endocrine:</label>
+                    <label for="Endocrine">Endocrino:</label>
                     <select id="Endocrine" name="Endocrine" class="form-control">
                       <option value="Low">Low</option>
                       <option value="Medium">Medium</option>
@@ -137,7 +134,7 @@
                     </select>
                   </div>
                   <div class="col-md-3">
-                    <label for="Oncology">Oncology:</label>
+                    <label for="Oncology">Oncologia:</label>
                     <select id="Oncology" name="Oncology" class="form-control">
                       <option value="Low">Low</option>
                       <option value="Medium">Medium</option>
@@ -156,7 +153,7 @@
                     </select>
                   </div>
                   <div class="col-md-3">
-                    <label for="Other">Other:</label>
+                    <label for="Other">Outro:</label>
                     <select id="Other" name="Other" class="form-control">
                       <option value="Low">Low</option>
                       <option value="Medium">Medium</option>
@@ -167,7 +164,7 @@
               
                 <!-- Submit Button -->
                 <div class="row mt-3">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">Buscar</button>
                 </div>
               </form>
               <div id="result"></div>
