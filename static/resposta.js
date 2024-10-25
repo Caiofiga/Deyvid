@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
     // Quando o formulário é enviado, envia os dados via AJAX
-    $("#predictionForm").submit(function(event) {
+    $("#modelform").submit(function(event) {
         event.preventDefault();  // Impede o comportamento padrão de recarregar a página
 
         // Coleta os dados do formulário
