@@ -19,14 +19,7 @@ $(document).ready(function() {
                 // Exibe o resultado da predição na página
                 $("#result").html(`
                     <p>Probabilidade de resistência: ${response.score.toFixed(2)}%</p>
-                    <p>Detalhes das predições:</p>
-                    <ul id="predictions-list"></ul>
                 `);
-
-                // Preenche a lista de predições
-                response.predictions.forEach(function(prediction, index) {
-                    $("#predictions-list").append(`<li>Classificador ${index + 1}: ${prediction}</li>`);
-                });
             },
             error: function(xhr, status, error) {
                 // Exibe mensagem de erro em caso de falha
