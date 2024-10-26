@@ -8,6 +8,15 @@ $(document).ready(function() {
         // Coleta os dados do formulário
         var formData = $(this).serializeArray();
 
+        // Exibe um placeholder enquanto espera pela resposta
+        $("#result-text").html(`
+            <div class="placeholder-glow">
+                <p class="placeholder col-6"></p>
+                <p class="placeholder col-4"></p>
+                <p class="placeholder col-8"></p>
+            </div>
+        `);
+
         // Envia os dados via AJAX
         $.ajax({
             type: 'POST',
@@ -16,14 +25,18 @@ $(document).ready(function() {
             contentType: 'application/json',
             data: JSON.stringify(formData),  // Converte os dados para JSON
             success: function(response) {
-                // Exibe o resultado da predição na página
-                $("#result").html(`
-                    <p>Probabilidade de resistência: ${response.score.toFixed(2)}%</p>
-                `);
+                setTimeout(function() {
+                    // Exibe o resultado da predição na página
+                    $("#result-text").html(`
+                        <p>Probabilidade de resistência: ${response.score.toFixed(2)}%</p>
+                    `);
+                }, 1500);
             },
             error: function(xhr, status, error) {
                 // Exibe mensagem de erro em caso de falha
-                $("#result").text("Erro ao calcular a predição.");
+                $("#result-text").html(`
+                    <p style="color: red;">Erro ao calcular a predição: ${xhr.responseText}</p>
+                `);
                 console.log("Erro: " + error);
             }
         });
