@@ -16,20 +16,34 @@
     <div>
       <div class="row">
         <div class="col-6">
-          <h1>Resultado da Busca de Antibióticos</h1>
-
           <!-- Exibe o nome do antibiótico pesquisado -->
-          <p><strong>Antibiótico pesquisado:</strong> {{ closest_drug }}</p>
+          <h1 id="search_res"><p><strong>Antibiótico pesquisado:</strong> {{ closest_drug }}</p></h1>
+
+          
+          
 
           <!-- Exibe a contagem de resistência -->
           <h2>Contagem de resistência:</h2>
-          <ul>
-            {% for disease, counts in resistencias.items() %}
-            <li>
-              <strong>{{ disease }}:</strong>
-              R: {{ counts['R'] }}, I: {{ counts['I'] }}, S: {{ counts['S'] }}
-            </li>
-            {% endfor %}
+            <table class="table table-striped">
+            <thead>
+              <tr>
+              <th>Doença</th>
+              <th>Resistente</th>
+              <th>Intermediario</th>
+              <th>Sensitivo</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for disease, counts in resistencias.items() %}
+              <tr>
+              <td><strong>{{ disease }}</strong></td>
+              <td>{{ counts['R'] }}</td>
+              <td>{{ counts['I'] }}</td>
+              <td>{{ counts['S'] }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+            </table>
           </ul>
             {% if graph_html %}
           <h2>Gráfico de Resistência Interativo:</h2>
@@ -40,33 +54,40 @@
 
         </div>
         <div class="col-6">
+          <h2> Modelo de predicao de Resistencia</h2>
           <div class="model">
             <form id="modelform" onsubmit="ProcessData(event)">
                 <div class="row">
                   <div class="col-md-2">
-                    <label for="insurance">Plano:</label>
-                    <input type="text" id="insurance" name="insurance" class="form-control" />
+                    <label for="insurance">Plano de Saude:</label>
+                    <input required
+                     type="text" id="insurance" name="insurance" class="form-control" />
             
                   </div>
                   <div class="col-md-2">
                     <label for="religion">Religião:</label>
-                    <input type="text" id="religion" name="religion" class="form-control" />
+                    <input required
+                     type="text" id="religion" name="religion" class="form-control" />
                   </div>
                   <div class="col-md-2">
                     <label for="marital_status">Estado Civil:</label>
-                    <input type="text" id="marital_status" name="marital_status" class="form-control" />
+                    <input required
+                     type="text" id="marital_status" name="marital_status" class="form-control" />
                   </div>
                   <div class="col-md-2">
                     <label for="ethnicity">Etnia:</label>
-                    <input type="text" id="ethnicity" name="ethnicity" class="form-control" />
+                    <input required
+                     type="text" id="ethnicity" name="ethnicity" class="form-control" />
                   </div>
                   <div class="col-md-2">
                     <label for="gender">Gênero:</label>
-                    <input type="text" id="gender" name="gender" class="form-control" />
+                    <input required
+                     type="text" id="gender" name="gender" class="form-control" />
                   </div>
                   <div class="col-md-2">
                     <label for="ab_name">Antibiótico:</label>
-                    <input type="text" id="ab_name" name="ab_name" class="form-control" value="{{closest_drug}}"/>
+                    <input required
+                     type="text" id="ab_name" name="ab_name" class="form-control" value="{{closest_drug}}"/>
                   </div>
                 </div>
               
@@ -74,7 +95,7 @@
                 </div>
               
                 <div class="row mt-3">
-                  <h5>Disease Categories (Low, Medium, High)</h5>
+                  <h5>Graus de doencas (Low, Medium, High)</h5>
                 </div>
               
                 <div class="row">
@@ -168,10 +189,15 @@
               
                 <!-- Submit Button -->
                 <div class="row mt-3">
-                  <button type="submit" class="btn btn-primary">Buscar</button>
+                  <button type="submit" class="btn btn-primary">Analisar</button>
                 </div>
               </form>
-              <div id="result"></div>
+                <div id="result" class="mt-4">
+                <h3>Resultado da Análise:</h3>
+                <div class="alert alert-info" role="alert">
+                  <p id="result-text">Aguardando análise...</p>
+                </div>
+                </div>
         </div>
       </div>
     </div>

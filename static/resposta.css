@@ -110,3 +110,26 @@ button.btn-primary {
         font-size: 1rem;
     }
 }
+
+#result{
+    font-size: 1.5rem;
+    color: #007bff;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+#search_res {
+    /* Styles for the entire container */
+    color: #333;
+    padding: 10px;
+    text-align: center !important;
+
+}
+
+#search_res p {
+    /* Styles for paragraphs and bold text within the search_res */
+    color: #007bff;
+    text-align: center;
+    font-size: 2.2rem;
+}
+
