@@ -1,5 +1,0 @@
-pandas
-Flask
-python-Levenshtein
-plotly
-scikit-learn
