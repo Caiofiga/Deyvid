@@ -1,8 +1,10 @@
 import numpy as np
 
+
 ps = [1, 30, 1]
 kqs = []
 alfa = [0.8, 1.95, 1.1]
+
 
 xs = []
 fxs = []
